@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">Watch AI</string>
+
+    <!-- Tabs -->
+    <string name="tab_chat">Chat</string>
+    <string name="tab_dashboard">Dashboard</string>
+    <string name="tab_settings">Settings</string>
+
+    <!-- Chat -->
+    <string name="greeting_small">Hi, Vedant</string>
+    <string name="watch_ai_title">Watch AI</string>
+    <string name="status_starting">Starting service…</string>
+    <string name="tap_to_talk">TAP TO TALK</string>
+    <string name="talk_button_desc">Start listening</string>
+    <string name="retry">Retry</string>
+
+    <!-- Dashboard -->
+    <string name="connection_health">Connection Health</string>
+    <string name="ble_status">Bluetooth</string>
+    <string name="session_uptime">Session Uptime</string>
+    <string name="phone_battery">Phone Battery</string>
+    <string name="raw_status">Raw Status</string>
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="no_watch_paired">No watch paired</string>
+    <string name="unknown">Unknown</string>
+    <string name="value_unknown">—</string>
+    <string name="time_placeholder">00:00</string>
+    <!-- Screen-reader text for the status chip, which conveys state by
+         color alone and would otherwise be silent. -->
+    <string name="ble_connected_desc">Watch connected</string>
+    <string name="ble_disconnected_desc">Watch not connected</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="appearance">Appearance</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="dark_theme_desc">Easier on the eyes at night</string>
+    <string name="watch_device">Watch Device</string>
+    <string name="connected_watch">Connected watch</string>
+    <string name="scan_for_watch">Scan for Watch</string>
+    <string name="hide_scanner">Hide Scanner</string>
+    <string name="scanning">Scanning…</string>
+    <string name="no_devices">No devices found. Tap Scan to start.</string>
+    <string name="scan">Scan</string>
+    <string name="groq_api_key">Groq API Key</string>
+    <string name="groq_api_key_desc">Get yours at console.groq.com</string>
+    <string name="api_key_hint">gsk_…</string>
+    <string name="save_key">Save key</string>
+    <string name="voice_shortcuts">Voice Shortcuts</string>
+    <string name="voice_shortcuts_desc">Say the phrase and it triggers instantly, no AI call needed.</string>
+    <string name="add_shortcut">Add a shortcut</string>
+    <string name="trigger_phrase_hint">Trigger phrase (e.g. \"good night\")</string>
+    <string name="contact_or_number_hint">Contact name or number</string>
+    <string name="search_query_hint">Search query</string>
+    <string name="message_text_hint">Message text</string>
+    <string name="add_shortcut_button">Add Shortcut</string>
+    <string name="action_call">Call</string>
+    <string name="action_message">Message</string>
+    <string name="action_spotify">Spotify</string>
+    <string name="action_google">Google</string>
+    <string name="data_management">Data Management</string>
+    <string name="clear_history">Clear Conversation History</string>
+    <string name="clear_history_title">Clear History?</string>
+    <string name="clear_history_msg">This will permanently delete all conversation history. This cannot be undone.</string>
+    <string name="clear">Clear</string>
+    <string name="cancel">Cancel</string>
+    <string name="remove">Remove</string>
+
+    <!-- Shared -->
+    <string name="api_key_saved">API key saved</string>
+    <string name="shortcut_fields_required">Please fill in all fields</string>
+    <string name="toggle_listening">Toggle Listening</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="service_not_ready">Still starting up…</string>
+</resources>

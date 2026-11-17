@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Custom theme attributes.
+
+      These exist so that no layout ever references a raw @color/ value for
+      anything theme-dependent. Layouts use ?attr/wai_* and the two themes
+      resolve them to different values in values/ vs values-night/.
+    -->
+
+    <!-- Surfaces -->
+    <attr name="waiBackground" format="color" />
+    <attr name="waiSurface" format="color" />
+    <attr name="waiSurfaceElevated" format="color" />
+    <attr name="waiSurfaceSunken" format="color" />
+
+    <!-- Content -->
+    <attr name="waiOnBackground" format="color" />
+    <attr name="waiOnSurface" format="color" />
+    <attr name="waiTextSecondary" format="color" />
+
+    <!-- Brand -->
+    <attr name="waiPrimary" format="color" />
+    <attr name="waiOnPrimary" format="color" />
+    <attr name="waiSecondary" format="color" />
+    <attr name="waiOnSecondary" format="color" />
+
+    <!-- Semantic -->
+    <attr name="waiPositive" format="color" />
+    <attr name="waiNegative" format="color" />
+    <attr name="waiWarning" format="color" />
+
+    <!-- Chat-specific -->
+    <attr name="waiBubbleUser" format="color" />
+    <attr name="waiOnBubbleUser" format="color" />
+    <attr name="waiBubbleModel" format="color" />
+    <attr name="waiOnBubbleModel" format="color" />
+    <attr name="waiInputFill" format="color" />
+
+    <!-- Tinted chip backgrounds, paired with the glyph color above -->
+    <attr name="waiPositiveContainer" format="color" />
+    <attr name="waiNegativeContainer" format="color" />
+    <attr name="waiWarningContainer" format="color" />
+    <attr name="waiPrimaryContainer" format="color" />
+
+    <!-- Shape -->
+    <attr name="waiCornerRadius" format="dimension" />
+</resources>

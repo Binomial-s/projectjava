@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/waiBackground"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/space_xl"
+        android:paddingTop="@dimen/space_lg"
+        android:paddingBottom="@dimen/space_xl">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_title"
+            android:textAppearance="@style/TextAppearance.WatchAi.ScreenTitle" />
+
+        <!-- APPEARANCE -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_2xl"
+            android:layout_marginBottom="@dimen/space_sm"
+            android:text="@string/appearance"
+            android:textAppearance="@style/TextAppearance.WatchAi.SectionHeader" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.WatchAi.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="@dimen/space_lg">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dark_theme"
+                        android:textAppearance="@style/TextAppearance.WatchAi.CardValue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dark_theme_desc"
+                        android:textAppearance="@style/TextAppearance.WatchAi.CardCaption" />
+                </LinearLayout>
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/theme_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- WATCH DEVICE -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_2xl"
+            android:layout_marginBottom="@dimen/space_sm"
+            android:text="@string/watch_device"
+            android:textAppearance="@style/TextAppearance.WatchAi.SectionHeader" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.WatchAi.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/space_lg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/connected_watch"
+                    android:textAppearance="@style/TextAppearance.WatchAi.CardLabel" />
+
+                <TextView
+                    android:id="@+id/mac_address_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.WatchAi.CardValue" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/scan_button"
+                    style="@style/Widget.WatchAi.Button.Outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_md"
+                    android:text="@string/scan_for_watch" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- BLE Scanner (hidden by default) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/scanner_card"
+            style="@style/Widget.WatchAi.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_md"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/space_lg">
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/scanner_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    android:visibility="gone"
+                    app:indicatorColor="?attr/waiPrimary"
+                    app:trackColor="?attr/waiSurfaceSunken" />
+
+                <TextView
+                    android:id="@+id/scanner_status_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_sm"
+                    android:text="@string/no_devices"
+                    android:textAppearance="@style/TextAppearance.WatchAi.CardCaption" />
+
+                <LinearLayout
+                    android:id="@+id/scanned_devices_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/space_sm" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/start_scan_button"
+                    style="@style/Widget.WatchAi.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_md"
+                    android:text="@string/scan" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- API KEY -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_2xl"
+            android:text="@string/groq_api_key"
+            android:textAppearance="@style/TextAppearance.WatchAi.SectionHeader" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/groq_api_key_desc"
+            android:textAppearance="@style/TextAppearance.WatchAi.CardCaption" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/api_key_layout"
+            style="@style/Widget.WatchAi.Input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_md"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/api_key_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/api_key_hint"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_key_button"
+            style="@style/Widget.WatchAi.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_md"
+            android:text="@string/save_key" />
+
+        <!-- VOICE SHORTCUTS -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_2xl"
+            android:text="@string/voice_shortcuts"
+            android:textAppearance="@style/TextAppearance.WatchAi.SectionHeader" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/voice_shortcuts_desc"
+            android:textAppearance="@style/TextAppearance.WatchAi.CardCaption" />
+
+        <LinearLayout
+            android:id="@+id/shortcuts_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/space_md" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_lg"
+            android:text="@string/add_shortcut"
+            android:textAppearance="@style/TextAppearance.WatchAi.CardLabel" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.WatchAi.Input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sm">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/shortcut_phrase_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/trigger_phrase_hint"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--
+          Action type chips.
+
+          app:checkedChip (not android:checked) is what actually pre-selects
+          a chip inside a ChipGroup — android:checked is ignored here, which
+          meant the "call" default never took effect.
+        -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/action_type_chips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_md"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_call"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                app:checkedChip="@id/chip_call"
+                android:text="@string/action_call" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_message"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/action_message" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_spotify"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/action_spotify" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_google"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/action_google" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.WatchAi.Input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sm">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/shortcut_target_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/contact_or_number_hint"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/message_body_layout"
+            style="@style/Widget.WatchAi.Input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_sm"
+            android:visibility="gone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/shortcut_message_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/message_text_hint"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/add_shortcut_button"
+            style="@style/Widget.WatchAi.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_md"
+            android:text="@string/add_shortcut_button" />
+
+        <!-- DATA MANAGEMENT -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_2xl"
+            android:layout_marginBottom="@dimen/space_sm"
+            android:text="@string/data_management"
+            android:textAppearance="@style/TextAppearance.WatchAi.SectionHeader" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/clear_history_button"
+            style="@style/Widget.WatchAi.Button.Outlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/clear_history"
+            android:textColor="?attr/waiNegative"
+            app:strokeColor="?attr/waiNegative" />
+
+    </LinearLayout>
+</ScrollView>

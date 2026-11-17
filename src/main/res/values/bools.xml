@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Dark status bar icons suit the light canvas; values-night flips this.
+      A qualified resource is used rather than a second Theme.WatchAi
+      definition, because a style defined in values-night/ REPLACES the
+      default one rather than merging with it — every other theme item
+      would silently disappear in dark mode.
+    -->
+    <bool name="light_status_bar">true</bool>
+</resources>

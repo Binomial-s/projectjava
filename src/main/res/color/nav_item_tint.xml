@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Bottom nav tint: primary when selected, muted when not. Stays in color/
+  rather than being duplicated in color-night/, because the selector
+  references ?attr, which resolves per-mode on its own.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:color="?attr/waiPrimary" />
+    <item android:color="?attr/waiTextSecondary" />
+</selector>

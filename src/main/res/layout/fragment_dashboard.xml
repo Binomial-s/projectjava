@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/waiBackground"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/space_xl"
+        android:paddingTop="@dimen/space_lg"
+        android:paddingBottom="@dimen/space_xl">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/connection_health"
+            android:textAppearance="@style/TextAppearance.WatchAi.ScreenTitle" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_xl" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.WatchAi.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_md">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="@dimen/space_lg">
+
+                <FrameLayout
+                    android:id="@+id/ble_status_chip"
+                    android:layout_width="@dimen/icon_chip_size"
+                    android:layout_height="@dimen/icon_chip_size"
+                    android:background="@drawable/bg_icon_chip"
+                    android:importantForAccessibility="no">
+
+                    <ImageView
+                        android:id="@+id/ble_status_icon"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/ble_connected_desc"
+                        android:src="@drawable/ic_bluetooth"
+                        app:tint="?attr/waiPrimary" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/space_md"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ble_status"
+                        android:textAppearance="@style/TextAppearance.WatchAi.CardLabel" />
+
+                    <TextView
+                        android:id="@+id/ble_status_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAccessibility="no"
+                        android:textAppearance="@style/TextAppearance.WatchAi.CardCaption" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/ble_status_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/disconnected"
+                    android:textAppearance="@style/TextAppearance.WatchAi.CardValue" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.WatchAi.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_md">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="@dimen/space_lg">
+
+                <FrameLayout
+                    android:layout_width="@dimen/icon_chip_size"
+                    android:layout_height="@dimen/icon_chip_size"
+                    android:background="@drawable/bg_icon_chip"
+                    android:importantForAccessibility="no">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/session_uptime"
+                        android:src="@drawable/ic_timer"
+                        app:tint="?attr/waiSecondary" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/space_md"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/session_uptime"
+                        android:textAppearance="@style/TextAppearance.WatchAi.CardLabel" />
+
+                    <TextView
+                        android:id="@+id/uptime_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/time_placeholder"
+                        android:textAppearance="@style/TextAppearance.WatchAi.CardValue"
+                        tools:text="04:21" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.WatchAi.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_md">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="@dimen/space_lg">
+
+                <FrameLayout
+                    android:layout_width="@dimen/icon_chip_size"
+                    android:layout_height="@dimen/icon_chip_size"
+                    android:background="@drawable/bg_icon_chip"
+                    android:importantForAccessibility="no">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/phone_battery"
+                        android:src="@drawable/ic_battery"
+                        app:tint="?attr/waiPositive" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/space_md"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phone_battery"
+                        android:textAppearance="@style/TextAppearance.WatchAi.CardLabel" />
+
+                    <TextView
+                        android:id="@+id/battery_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/value_unknown"
+                        android:textAppearance="@style/TextAppearance.WatchAi.CardValue"
+                        tools:text="82%" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.WatchAi.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="@dimen/space_lg">
+
+                <FrameLayout
+                    android:layout_width="@dimen/icon_chip_size"
+                    android:layout_height="@dimen/icon_chip_size"
+                    android:background="@drawable/bg_icon_chip"
+                    android:importantForAccessibility="no">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/raw_status"
+                        android:src="@drawable/ic_info"
+                        app:tint="?attr/waiTextSecondary" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/space_md"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/raw_status"
+                        android:textAppearance="@style/TextAppearance.WatchAi.CardLabel" />
+
+                    <TextView
+                        android:id="@+id/raw_status_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxWidth="160dp"
+                        android:maxLines="1"
+                        android:text="@string/status_starting"
+                        android:textAppearance="@style/TextAppearance.WatchAi.CardCaption" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

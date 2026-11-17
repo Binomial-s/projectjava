@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Shape + text styles. Material components each have their own default
+      corner treatment; setting them all from one place keeps the app reading
+      as a single system instead of a mix of M defaults and custom cards.
+    -->
+
+    <!-- 16dp cards, matching every MaterialCardView in the app -->
+    <style name="ShapeAppearance.WatchAi.Card" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/corner_card</item>
+    </style>
+
+    <!-- Fully rounded, for the chat input and primary action -->
+    <style name="ShapeAppearance.WatchAi.Pill" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.WatchAi.Card" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/corner_card</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.WatchAi.Pill" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- ===== Text ===== -->
+
+    <!-- "Hi," — small, secondary, above the main greeting -->
+    <style name="TextAppearance.WatchAi.GreetingSmall" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">?attr/waiTextSecondary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- The large greeting line -->
+    <style name="TextAppearance.WatchAi.GreetingLarge" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">?attr/waiOnBackground</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingMultiplier">1.15</item>
+    </style>
+
+    <style name="TextAppearance.WatchAi.ScreenTitle" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">?attr/waiOnBackground</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- ALL-CAPS section header, as used in Settings -->
+    <style name="TextAppearance.WatchAi.SectionHeader" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="android:textColor">?attr/waiPrimary</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.12</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Card label, e.g. "BLE Status" -->
+    <style name="TextAppearance.WatchAi.CardLabel" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">?attr/waiTextSecondary</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Card value, e.g. "Connected" -->
+    <style name="TextAppearance.WatchAi.CardValue" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">?attr/waiOnSurface</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.WatchAi.CardCaption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">?attr/waiTextSecondary</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextAppearance.WatchAi.Bubble" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">15sp</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="TextAppearance.WatchAi.Timestamp" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">?attr/waiTextSecondary</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <!-- ===== Widgets ===== -->
+
+    <style name="Widget.WatchAi.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">?attr/waiSurface</item>
+        <item name="cardCornerRadius">@dimen/corner_card</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.WatchAi.Card</item>
+    </style>
+
+    <style name="Widget.WatchAi.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="backgroundTint">?attr/waiPrimary</item>
+        <item name="android:textColor">?attr/waiOnPrimary</item>
+        <item name="cornerRadius">@dimen/corner_pill</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.WatchAi.Pill</item>
+    </style>
+
+    <style name="Widget.WatchAi.Button.Text" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?attr/waiPrimary</item>
+        <item name="cornerRadius">@dimen/corner_pill</item>
+    </style>
+
+    <style name="Widget.WatchAi.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">?attr/waiPrimary</item>
+        <item name="strokeColor">?attr/waiPrimary</item>
+        <item name="cornerRadius">@dimen/corner_pill</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.WatchAi.Pill</item>
+    </style>
+
+    <!-- Default action chip is "Call" so the message body starts hidden -->
+    <attr name="waiDefaultActionChip" format="reference" />
+
+    <style name="Widget.WatchAi.Input" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">@dimen/corner_chip</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/corner_chip</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/corner_chip</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/corner_chip</item>
+        <item name="hintTextColor">?attr/waiPrimary</item>
+        <item name="boxStrokeColor">?attr/waiPrimary</item>
+    </style>
+</resources>

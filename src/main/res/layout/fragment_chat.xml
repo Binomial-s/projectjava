@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/space_xl"
+    android:paddingTop="@dimen/space_lg"
+    android:paddingBottom="@dimen/space_md"
+    android:background="?attr/waiBackground">
+
+    <!--
+      Premium two-tier greeting. The small line is the user's name; the large
+      line is the app identity. This mirrors the MediAI pattern — it reads as
+      a personal assistant rather than a generic chat widget.
+    -->
+    <TextView
+        android:id="@+id/greeting_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/greeting_small"
+        android:textAppearance="@style/TextAppearance.WatchAi.GreetingSmall" />
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_xs"
+        android:text="@string/watch_ai_title"
+        android:textAppearance="@style/TextAppearance.WatchAi.GreetingLarge" />
+
+    <!-- Status -->
+    <TextView
+        android:id="@+id/status_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_sm"
+        android:textAppearance="@style/TextAppearance.WatchAi.CardLabel" />
+
+    <!-- Waveform indicator (visible while listening) -->
+    <LinearLayout
+        android:id="@+id/waveform_container"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="@dimen/space_md"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <View android:id="@+id/wave_bar_1" android:layout_width="6dp" android:layout_height="8dp"
+            android:layout_marginHorizontal="3dp" android:background="@drawable/bg_wave_bar" />
+        <View android:id="@+id/wave_bar_2" android:layout_width="6dp" android:layout_height="8dp"
+            android:layout_marginHorizontal="3dp" android:background="@drawable/bg_wave_bar" />
+        <View android:id="@+id/wave_bar_3" android:layout_width="6dp" android:layout_height="8dp"
+            android:layout_marginHorizontal="3dp" android:background="@drawable/bg_wave_bar" />
+        <View android:id="@+id/wave_bar_4" android:layout_width="6dp" android:layout_height="8dp"
+            android:layout_marginHorizontal="3dp" android:background="@drawable/bg_wave_bar" />
+        <View android:id="@+id/wave_bar_5" android:layout_width="6dp" android:layout_height="8dp"
+            android:layout_marginHorizontal="3dp" android:background="@drawable/bg_wave_bar" />
+    </LinearLayout>
+
+    <!-- Error card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/error_card"
+        style="@style/Widget.WatchAi.Card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_sm"
+        android:visibility="gone"
+        app:cardBackgroundColor="?attr/waiNegativeContainer"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/space_md">
+
+            <TextView
+                android:id="@+id/error_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/waiNegative"
+                android:textSize="14sp"
+                tools:text="Network trouble. Try again in a moment." />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/retry_button"
+                style="@style/Widget.WatchAi.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/space_sm"
+                android:text="@string/retry" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--
+      Chat messages list.
+
+      The streaming response renders as a live row inside this list rather
+      than in a separate card below it — previously the streaming card sat
+      under the RecyclerView, so any response longer than the viewport was
+      invisible while it was still arriving.
+    -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/space_sm"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/space_sm"
+        tools:listitem="@layout/item_chat_bubble_model" />
+
+    <!--
+      No talk button here.
+
+      The microphone lives in the bottom navigation (activity_main.xml), so
+      there is exactly one trigger for listening rather than two that could
+      drift out of sync. See the note there.
+    -->
+
+</LinearLayout>

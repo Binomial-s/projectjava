@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+      Three tabs. The microphone is NOT a fourth tab: it is a separate
+      button in activity_main.xml, anchored to the end of the nav row, so
+      that Chat / Dashboard / Settings all stay reachable. (Centering the
+      mic between two tabs would have forced dropping one screen.)
+    -->
+    <item
+        android:id="@+id/nav_chat"
+        android:icon="@drawable/ic_chat"
+        android:title="@string/tab_chat" />
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@drawable/ic_dashboard"
+        android:title="@string/tab_dashboard" />
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/tab_settings" />
+</menu>

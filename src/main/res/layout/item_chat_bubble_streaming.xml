@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The in-flight assistant response.
+
+  Same bubble as item_chat_bubble_model, but with no timestamp (it does not
+  have one yet) and a blinking caret so it reads as "still arriving" rather
+  than "finished". Lives inside the RecyclerView instead of below it, so a
+  long response is visible while it streams.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="start"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/space_xs">
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.WatchAi.Card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        app:cardBackgroundColor="?attr/waiBubbleModel"
+        app:strokeColor="?attr/waiPrimary"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/space_md"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:id="@+id/message_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.WatchAi.Bubble"
+                android:textColor="?attr/waiOnBubbleModel"
+                tools:text="Here's what I found" />
+
+            <TextView
+                android:id="@+id/streaming_caret"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:text="▍"
+                android:textColor="?attr/waiPrimary"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

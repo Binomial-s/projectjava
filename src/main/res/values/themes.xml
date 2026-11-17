@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      ONE theme, not two.
+
+      Previously this file defined Theme.WatchAi (dark) and
+      Theme.WatchAi.Light, and MainActivity picked between them. That
+      approach could not work with the new token system, because the actual
+      palette lives in values/colors.xml + values-night/colors.xml and is
+      selected by the system night mode, not by which style is applied.
+
+      So the in-app toggle now drives AppCompatDelegate.setDefaultNightMode,
+      which flips the system night mode, which swaps the color resources.
+      Everything else resolves identically in both modes.
+    -->
+
+    <style name="Theme.WatchAi" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Surfaces -->
+        <item name="waiBackground">@color/background</item>
+        <item name="waiSurface">@color/surface</item>
+        <item name="waiSurfaceElevated">@color/surface_elevated</item>
+        <item name="waiSurfaceSunken">@color/surface_sunken</item>
+
+        <!-- Content -->
+        <item name="waiOnBackground">@color/on_background</item>
+        <item name="waiOnSurface">@color/on_surface</item>
+        <item name="waiTextSecondary">@color/text_secondary</item>
+
+        <!-- Brand -->
+        <item name="waiPrimary">@color/primary</item>
+        <item name="waiOnPrimary">@color/on_primary</item>
+        <item name="waiSecondary">@color/secondary</item>
+        <item name="waiOnSecondary">@color/on_secondary</item>
+
+        <!-- Semantic -->
+        <item name="waiPositive">@color/positive</item>
+        <item name="waiNegative">@color/negative</item>
+        <item name="waiWarning">@color/warning</item>
+
+        <!-- Chat -->
+        <item name="waiBubbleUser">@color/bubble_user</item>
+        <item name="waiOnBubbleUser">@color/on_bubble_user</item>
+        <item name="waiBubbleModel">@color/bubble_model</item>
+        <item name="waiOnBubbleModel">@color/on_bubble_model</item>
+        <item name="waiInputFill">@color/input_fill</item>
+
+        <!-- Tinted containers -->
+        <item name="waiPrimaryContainer">@color/primary_container</item>
+        <item name="waiPositiveContainer">@color/positive_container</item>
+        <item name="waiNegativeContainer">@color/negative_container</item>
+        <item name="waiWarningContainer">@color/warning_container</item>
+
+        <!-- Shape -->
+        <item name="waiCornerRadius">@dimen/corner_card</item>
+
+        <!-- Map the standard Material slots onto our tokens so third-party
+             widgets (and Material's own defaults) inherit the same palette
+             instead of falling back to purple. -->
+        <item name="colorPrimary">?attr/waiPrimary</item>
+        <item name="colorPrimaryVariant">?attr/waiPrimary</item>
+        <item name="colorOnPrimary">?attr/waiOnPrimary</item>
+        <item name="colorSecondary">?attr/waiSecondary</item>
+        <item name="colorSecondaryVariant">?attr/waiSecondary</item>
+        <item name="colorOnSecondary">?attr/waiOnSecondary</item>
+        <item name="colorSurface">?attr/waiSurface</item>
+        <item name="colorOnSurface">?attr/waiOnSurface</item>
+        <item name="colorError">?attr/waiNegative</item>
+        <item name="android:colorBackground">?attr/waiBackground</item>
+        <item name="colorOnBackground">?attr/waiOnBackground</item>
+
+        <item name="android:statusBarColor">?attr/waiBackground</item>
+        <item name="android:navigationBarColor">?attr/waiBackground</item>
+        <!--
+          Resolved from values/bools.xml vs values-night/bools.xml rather
+          than being overridden by a second Theme.WatchAi in values-night/.
+
+          That is deliberate and load-bearing: a style resource in a
+          night-qualified folder does NOT merge with the default one. It
+          replaces it and inherits only from its declared parent, so
+          redefining Theme.WatchAi there with a couple of items silently
+          drops every other item — including all the ?attr/wai_* mappings
+          below — and the app crashes on inflate with
+          "Failed to resolve attribute". This file must stay the only place
+          Theme.WatchAi is defined.
+        -->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">@bool/light_status_bar</item>
+    </style>
+
+</resources>
